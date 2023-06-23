@@ -75,6 +75,14 @@ public class Person {
     public String addPet(String pet) {
         return pet; // not quite sure, if this will work, because this is actually a class //
     }
+
+    public String addSibling(String sibling) {
+        return sibling;
+    }
+
+    public String addGrandChildren(String grandchild) {
+        return grandchild;
+    }
 }
 
 
