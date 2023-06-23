@@ -2,22 +2,30 @@ import java.util.ArrayList;
 
 public class Person {
     private final String name;
-    private final String middleName;
+    private String middleName;
     private final String lastName;
     private final String gender;
     private int age;
-    private final String mother;
-    private final String father;
-    /*private List<Sibling> siblings = new ArrayList<>();*/
+    private String mother; // this is actually a person too // //TODO: solve this here !
+    private String father; // this is actually a person too // TODO : solve this here too !
+/*    private List<Sibling> siblingList = new ArrayList<>();
+    private List<Child> childrenList = new ArrayList<>();
+    private List<Pet> petList = new ArrayList<>();*/ //TODO : this is still giving me errors - check out why
 
-    public Person(String name, String middleName, String lastName, String gender, int age, String mother, String father) {
+    public Person(String name, String lastName, int age, String gender) {
         this.name = name;
-        this.middleName = middleName;
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
-        this.mother = mother;
-        this.father = father;
+    }
+
+    public Person(String name, String middleName, String lastName, int age, String gender) {
+        this.name = name;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+
     }
 
     public String getName() {
