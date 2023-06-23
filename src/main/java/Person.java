@@ -6,8 +6,9 @@ public class Person {
     private final String lastName;
     private final String gender;
     private int age;
-    private String mother; // this is actually a person too // //TODO: solve this here !
-    private String father; // this is actually a person too // TODO : solve this here too !
+    private String mother;
+    private String father;
+
 /*    private List<Sibling> siblingList = new ArrayList<>();
     private List<Child> childrenList = new ArrayList<>();
     private List<Pet> petList = new ArrayList<>();*/ //TODO : this is still giving me errors - check out why
@@ -59,4 +60,25 @@ public class Person {
     public String getFather() {
         return father;
     }
+
+    public String[] addParents(String mother, String father) {
+        String[] parents = new String[2];
+        parents[0] = mother;
+        parents[1] = father;
+        return parents;
+    }
+
+    public String addChild(String child) {
+        return child;
+    }
+
+    public String addPet(String pet) {
+        return pet; // not quite sure, if this will work, because this is actually a class //
+    }
 }
+
+
+//TODO : addChild methode
+//addPet methode
+//addSibling methode
+//getGrandChildren methode
