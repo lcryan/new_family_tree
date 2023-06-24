@@ -1,8 +1,8 @@
 package org.example;
 
-public class Pet {
 
-    final private String name;
+public class Pet {
+    private String name;
     private int age;
     private String species;
     private String owner;
