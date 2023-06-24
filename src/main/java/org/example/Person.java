@@ -1,4 +1,4 @@
-import org.example.Pet;
+package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -139,7 +139,7 @@ public class Person {
     public void addSibling(Person person, Person sibling) {
         List<Person> kin = new ArrayList<>(); // here we store the siblings in the list of each person //
         if (person.getSiblings() != null) { // if the condition is true, the code below will be executed...//
-            for (Person persons : person.getSiblings()) { // this iterates over each Person object within the person's existing list of siblings -
+            for (Person persons : person.getSiblings()) { // this iterates over each org.example.Person object within the person's existing list of siblings -
                 //accessed through the getSiblings() method - the loop variable persons represents each individual sibling in the loop iteration. //
                 kin.add(persons); // adding existing siblings to list //
             }
@@ -150,11 +150,11 @@ public class Person {
     }
 
     public List<Person> getGrandChildren(Person person) {
-        List<Person> grandChildren = new ArrayList<>(); // here we store all grandchildren of Person //
+        List<Person> grandChildren = new ArrayList<>(); // here we store all grandchildren of org.example.Person //
         if (person.getChildren() != null) { // if person does have children, then ...//
-            for (Person children : person.getChildren()) { // loop through Person's existing list of children //
+            for (Person children : person.getChildren()) { // loop through org.example.Person's existing list of children //
                 if (children.getChildren() != null) {  // if children have children
-                    for (Person grandChild : children.getChildren()) { //iterates over each Person object in the list of children for the current child - accessed through the getChildren method //
+                    for (Person grandChild : children.getChildren()) { //iterates over each org.example.Person object in the list of children for the current child - accessed through the getChildren method //
                         grandChildren.add(grandChild); // adding all grandChildren to the list of grandChildren;
                     }
                 }
