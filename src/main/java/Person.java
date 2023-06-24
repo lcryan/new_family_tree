@@ -103,7 +103,7 @@ public class Person {
         return pets;
     }
 
-    public void setPetList(List<Pet> pets) {
+    public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
 
@@ -115,22 +115,43 @@ public class Person {
 
     }
 
-    public String addChildToChildrenList(Person child) {
-        children.add();
+    public void addChildToChildrenList(Person parent, Person child) {
+        List<Person> children = new ArrayList<>();
+        if (parent.getChildren() != null) {
+            for (Person person : parent.getChildren()) {
+                children.add(person);
+            }
+        }
+        children.add(child);
+        parent.setChildren(children);
+    }
+
+    public void addPet(Person person, Pet pet) {
+        List<Pet> pets = new ArrayList<>(); // storing pets in the person's pet list here //
+        if (person.getPets() != null) { // if the condition is true then:
+            pets.addAll(person.getPets()); // we add all existing pets to the person pets list through the getPets method //
+        }
+        pets.add(pet);  // now we add a new pet to the pets list //
+        person.setPets(pets); // now the updated pets list is set as the person's list of pets (with existing and new pets) - using the setSiblings method//
+    }
+
+
+    public void addSibling(Person person, Person sibling) {
+        List<Person> kin = new ArrayList<>(); // here we store the siblings in the list of each person //
+        if (person.getSiblings() != null) { // if the condition is true, the code below will be executed...//
+            for (Person persons : person.getSiblings()) { // this iterates over each Person object within the person's existing list of siblings -
+                //accessed through the getSiblings() method - the loop variable persons represents each individual sibling in the loop iteration. //
+                kin.add(persons); // adding existing siblings to list //
+            }
+            kin.add(sibling); // adding new sibling to person's siblingslist (here kin) //
+            person.setSiblings(kin); // the updated kin list is set as the person's list of siblings using the setSiblings method of the person object //
+        }
 
     }
 
-    public String addPet(String pet) {
-        return pet; // not quite sure, if this will work, because this is actually a class //
-    }
+    public void getGrandChildren(Person person, Person grandChild) {
+        List <Person> grandChildren = new ArrayList<>(); // here we store all grandchildren of Person //
 
-    public String addSibling(String sibling) {
-        return sibling;
-    }
 
-    public String getGrandChildren(String grandchild) {
-        return grandchild;
     }
 }
-
-// methods end //
