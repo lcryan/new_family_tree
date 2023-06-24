@@ -1,17 +1,20 @@
-import java.util.ArrayList;
+import org.example.Pet;
 
-public abstract class Person {
-    final private String name;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Person {
+    private String name;
     private String middleName;
-    final private String lastName;
-    final private String gender;
+    private String lastName;
+    private String gender;
     private int age;
     private String mother;
     private String father;
 
-    private List<Sibling> siblingList = new ArrayList<>();
-    private List<Child> childrenList = new ArrayList<>();
-    private List<Pet> petList = new ArrayList<>();
+    private List<Person> siblingList = new ArrayList<>(); // TODO : import Sibling class later on  - how do ~I get the siblings here ?? //
+    private List<Person> childrenList = new ArrayList<>(); // TODO: import Child class later on //
+    public List<Pet> petList;
 
     // first constructor //
 
@@ -20,6 +23,7 @@ public abstract class Person {
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
+        petList = new ArrayList<>();
     }
 
     // second constructor //
@@ -29,7 +33,6 @@ public abstract class Person {
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
-
     }
 
     // constructors complete //
@@ -80,19 +83,19 @@ public abstract class Person {
         this.father = father;
     }
 
-    public List<Sibling> getSiblingList() {
+    public List<Person> getSiblingList() {
         return siblingList;
     }
 
-    public void setSiblingList(List<Sibling> siblingList) {
+    public void setSiblingList(List<Person> siblingList) {
         this.siblingList = siblingList;
     }
 
-    public List<Child> getChildrenList() {
+    public List<Person> getChildrenList() {
         return childrenList;
     }
 
-    public void setChildrenList(List<Child> childrenList) {
+    public void setChildrenList(List<Person> childrenList) {
         this.childrenList = childrenList;
     }
 
