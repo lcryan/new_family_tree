@@ -1,17 +1,19 @@
 import java.util.ArrayList;
 
 public class Person {
-    private final String name;
+    final private String name;
     private String middleName;
-    private final String lastName;
-    private final String gender;
+    final private String lastName;
+    final private String gender;
     private int age;
     private String mother;
     private String father;
 
-/*    private List<Sibling> siblingList = new ArrayList<>();
+    private List<Sibling> siblingList = new ArrayList<>();
     private List<Child> childrenList = new ArrayList<>();
-    private List<Pet> petList = new ArrayList<>();*/ //TODO : this is still giving me errors - check out why
+    private List<Pet> petList = new ArrayList<>();
+
+    // first constructor //
 
     public Person(String name, String lastName, int age, String gender) {
         this.name = name;
@@ -20,6 +22,7 @@ public class Person {
         this.age = age;
     }
 
+    // second constructor //
     public Person(String name, String middleName, String lastName, int age, String gender) {
         this.name = name;
         this.middleName = middleName;
@@ -29,12 +32,20 @@ public class Person {
 
     }
 
+    // constructors complete //
+
+    // getters & setters //
+
     public String getName() {
         return name;
     }
 
     public String getMiddleName() {
         return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     public String getLastName() {
@@ -57,9 +68,43 @@ public class Person {
         return mother;
     }
 
+    public void setMother(String mother) {
+        this.mother = mother;
+    }
+
     public String getFather() {
         return father;
     }
+
+    public void setFather(String father) {
+        this.father = father;
+    }
+
+    public List<Sibling> getSiblingList() {
+        return siblingList;
+    }
+
+    public void setSiblingList(List<Sibling> siblingList) {
+        this.siblingList = siblingList;
+    }
+
+    public List<Child> getChildrenList() {
+        return childrenList;
+    }
+
+    public void setChildrenList(List<Child> childrenList) {
+        this.childrenList = childrenList;
+    }
+
+    public List<Pet> getPetList() {
+        return petList;
+    }
+
+    public void setPetList(List<Pet> petList) {
+        this.petList = petList;
+    }
+
+    // all methods //
 
     public String[] addParents(String mother, String father) {
         String[] parents = new String[2];
@@ -80,13 +125,9 @@ public class Person {
         return sibling;
     }
 
-    public String addGrandChildren(String grandchild) {
+    public String getGrandChildren(String grandchild) {
         return grandchild;
     }
 }
 
-
-//TODO : addChild methode
-//addPet methode
-//addSibling methode
-//getGrandChildren methode
+// methods end //
