@@ -149,9 +149,17 @@ public class Person {
 
     }
 
-    public void getGrandChildren(Person person, Person grandChild) {
-        List <Person> grandChildren = new ArrayList<>(); // here we store all grandchildren of Person //
-
-
+    public List<Person> getGrandChildren(Person person) {
+        List<Person> grandChildren = new ArrayList<>(); // here we store all grandchildren of Person //
+        if (person.getChildren() != null) { // if person does have children, then ...//
+            for (Person children : person.getChildren()) { // loop through Person's existing list of children //
+                if (children.getChildren() != null) {  // if children have children
+                    for (Person grandChild : children.getChildren()) { //iterates over each Person object in the list of children for the current child - accessed through the getChildren method //
+                        grandChildren.add(grandChild); // adding all grandChildren to the list of grandChildren;
+                    }
+                }
+            }
+        }
+        return grandChildren; // returning the list of grandChildren //
     }
 }
