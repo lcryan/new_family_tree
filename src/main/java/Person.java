@@ -12,9 +12,9 @@ public class Person {
     private String mother;
     private String father;
 
-    private List<Person> siblingList = new ArrayList<>(); // TODO : import Sibling class later on  - how do ~I get the siblings here ?? //
-    private List<Person> childrenList = new ArrayList<>(); // TODO: import Child class later on //
-    public List<Pet> petList;
+    private List<Person> siblings = new ArrayList<>();
+    private List<Person> children = new ArrayList<>();
+    public List<Pet> pets;
 
     // first constructor //
 
@@ -23,7 +23,7 @@ public class Person {
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
-        petList = new ArrayList<>();
+        pets = new ArrayList<>();
     }
 
     // second constructor //
@@ -71,7 +71,7 @@ public class Person {
         return mother;
     }
 
-    public void setMother(String mother) {
+    public void setMother() {
         this.mother = mother;
     }
 
@@ -79,45 +79,45 @@ public class Person {
         return father;
     }
 
-    public void setFather(String father) {
+    public void setFather() {
         this.father = father;
     }
 
-    public List<Person> getSiblingList() {
-        return siblingList;
+    public List<Person> getSiblings() {
+        return siblings;
     }
 
-    public void setSiblingList(List<Person> siblingList) {
-        this.siblingList = siblingList;
+    public void setSiblings(List<Person> siblingList) {
+        this.siblings = siblings;
     }
 
-    public List<Person> getChildrenList() {
-        return childrenList;
+    public List<Person> getChildren() {
+        return children;
     }
 
-    public void setChildrenList(List<Person> childrenList) {
-        this.childrenList = childrenList;
+    public void setChildren(List<Person> childrenList) {
+        this.children = children;
     }
 
-    public List<Pet> getPetList() {
-        return petList;
+    public List<Pet> getPets() {
+        return pets;
     }
 
-    public void setPetList(List<Pet> petList) {
-        this.petList = petList;
+    public void setPetList(List<Pet> pets) {
+        this.pets = pets;
     }
 
     // all methods //
 
-    public String[] addParents(String mother, String father) {
-        String[] parents = new String[2];
-        parents[0] = mother;
-        parents[1] = father;
-        return parents;
+    public void addParents(Person mother, Person father, Person child) {
+        child.setMother();
+        child.setFather();
+
     }
 
-    public String addChild(String child) {
-        return child;
+    public String addChildToChildrenList(Person child) {
+        children.add();
+
     }
 
     public String addPet(String pet) {
