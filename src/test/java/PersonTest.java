@@ -1,4 +1,5 @@
 import org.example.Person;
+import org.example.Pet;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -61,6 +62,7 @@ public class PersonTest {
         //act//
         Juanita.setGender("male");
         String gender = Juanita.getGender();
+        //assert//
         assertEquals("male", gender);
     }
 
@@ -141,6 +143,25 @@ public class PersonTest {
 
         List<Person> children = Mother.getChildren();
         assertEquals(kids, children);
+    }
+
+    @Test
+    public void getPets() {
+        //arrange//
+        Person Maribel = new Person("Maribel", "Madrigal", 16, "female");
+        Pet dog = new Pet("Chuchu", 10, "labrador");
+        Pet cat = new Pet("MiauMiau", 5, "siamese");
+
+        List<Pet> animalFriends = new ArrayList<>();
+        animalFriends.add(dog);
+        animalFriends.add(cat);
+
+        //act//
+        Maribel.setPets(animalFriends);
+        List<Pet> pets = Maribel.getPets();
+
+        //assert//
+        assertEquals(animalFriends, pets);
     }
 
 }

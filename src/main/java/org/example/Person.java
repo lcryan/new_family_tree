@@ -112,7 +112,7 @@ public class Person {
         this.pets = pets;
     }
 
-    // all methods //
+    // all other methods //
 
     public void addParents(Person mother, Person father, Person child) {
         child.setMother(mother);
