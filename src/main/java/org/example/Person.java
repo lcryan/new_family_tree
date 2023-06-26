@@ -9,8 +9,8 @@ public class Person {
     private String lastName;
     private String gender;
     private int age;
-    private String mother;
-    private String father;
+    Person mother;
+    Person father;
 
     private List<Person> siblings = new ArrayList<>();
     private List<Person> children = new ArrayList<>();
@@ -59,6 +59,10 @@ public class Person {
         return gender;
     }
 
+    public void setGender(String male) {
+        this.gender = gender;
+    }
+
     public int getAge() {
         return age;
     }
@@ -67,35 +71,36 @@ public class Person {
         this.age = age;
     }
 
-    public String getMother() {
+    public Person getMother() {
         return mother;
     }
 
-    public void setMother() {
+    public void setMother(Person mother) {
         this.mother = mother;
     }
 
-    public String getFather() {
+    public Person getFather() {
         return father;
     }
 
-    public void setFather() {
+    public void setFather(Person father) {
         this.father = father;
     }
 
     public List<Person> getSiblings() {
-        return siblings;
+        return this.siblings;
     }
 
-    public void setSiblings(List<Person> siblingList) {
+    public void setSiblings(List<Person> siblings) {
         this.siblings = siblings;
     }
 
+
     public List<Person> getChildren() {
-        return children;
+        return this.children;
     }
 
-    public void setChildren(List<Person> childrenList) {
+    public void setChildren(List<Person> children) {
         this.children = children;
     }
 
@@ -110,8 +115,8 @@ public class Person {
     // all methods //
 
     public void addParents(Person mother, Person father, Person child) {
-        child.setMother();
-        child.setFather();
+        child.setMother(mother);
+        child.setFather(father);
 
     }
 
