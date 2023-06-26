@@ -131,17 +131,17 @@ public class PersonTest {
 
     @Test
     public void getChildren() {
+        //arrange//
         Person Mother = new Person("Adassa", "Madrigal", 16, "female");
         Person child1 = new Person("Luisa", "Madrigal", 23, "female");
         Person child2 = new Person("Bella", "Maribel", 25, "female");
-
         List<Person> kids = new ArrayList<>();
         kids.add(child1);
         kids.add(child2);
-
+        //act//
         Mother.setChildren(kids);
-
         List<Person> children = Mother.getChildren();
+        //assert//
         assertEquals(kids, children);
     }
 
@@ -151,17 +151,80 @@ public class PersonTest {
         Person Maribel = new Person("Maribel", "Madrigal", 16, "female");
         Pet dog = new Pet("Chuchu", 10, "labrador");
         Pet cat = new Pet("MiauMiau", 5, "siamese");
-
         List<Pet> animalFriends = new ArrayList<>();
         animalFriends.add(dog);
         animalFriends.add(cat);
-
         //act//
         Maribel.setPets(animalFriends);
         List<Pet> pets = Maribel.getPets();
-
         //assert//
         assertEquals(animalFriends, pets);
     }
 
+    @Test
+    public void addChildToChildrenList() {
+        //arrange//
+        Person child1 = new Person("Maribel", "Madrigal", 16, "female");
+        Person child2 = new Person("Anna", "Madrigal", 4, "female");
+
+        List<Person> children = new ArrayList<>();
+        children.add(child1); //adding child1//
+        //act//
+        child2.addChildToChildrenList(child2, child1); //adding child1
+        List<Person> kiddies = child2.getChildren(); //here child1 as result//
+        //assert//
+        assertEquals(kiddies, children);//should both contain child1//
+    }
+
+    @Test
+    public void addPet() {
+        Person Bruno = new Person("Bruno", "Madrigal", 44, "male");
+        Pet monkey = new Pet("Bubu", 3, "monkey");
+        Pet giraffe = new Pet("Maurice", 16, "giraffe");
+        List<Pet> pets = new ArrayList<>();//empty pets list//
+        pets.add(monkey); //adding monkey to general petslist//
+        pets.add(giraffe);// adding giraffe to general petlist - list contains monkey and giraffe//
+        Bruno.addPet(Bruno, monkey); // adding monkey to Bruno's petlist//
+
+        //act
+        Bruno.addPet(Bruno, giraffe);//adding giraffe to Bruno's petlist - Brunos list should contain monkey and giraffe//
+
+        assertEquals(pets, Bruno.getPets());// now we check if the pets list equals Bruno's petslist -if equal - test will turn green//
+    }
+
+    @Test
+    public void addSibling() {
+        Person Bruno = new Person("Bruno", "Madrigal", 44, "male");
+        Person Dolores = new Person("Dolores", "Madrigal", 35, "female");
+        Person Maria = new Person("Maria", "Madrigal", 22, "female");
+
+        List<Person> siblings = new ArrayList<>();
+        siblings.add(Bruno);
+        siblings.add(Dolores);
+        Maria.addSibling(Maria, Bruno);
+
+        Maria.addSibling(Maria, Dolores);
+        assertEquals(siblings, Maria.getSiblings());
+
+    }
+
+    @Test
+    public void getGrandChildren() {
+        Person Juanita = new Person("Juana", "Madrigal", 3, "female");
+        Person Maribel = new Person("Maribel", "Madrigal", 34, "female");
+        Person Dolores = new Person("Dolores", "Madrigal", 99, "female");
+
+        List<Person> grandChildren = new ArrayList<>();
+        grandChildren.add(Juanita);//adding Juanita as a grandChild to the list//
+
+        Maribel.addChildToChildrenList(Maribel, Juanita);//adding Juanita(Maribels daughter and Dolores' grandChild) to Maribel's(Dolores daughter) list of children//
+        Dolores.addChildToChildrenList(Dolores, Maribel);//adding Maribel(daughter Dolores) to Dolores(mother Maribel and grandMother Juanita) list of children
+
+        List<Person> listGrandKids = Dolores.getGrandChildren(Dolores);//will give back the list of grandKids of Dolores//
+
+        assertEquals(grandChildren, listGrandKids); //compares list of grandChildren with listGrandKids//
+    }
+
 }
+
+//
