@@ -2,16 +2,49 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <groupId>familia_madrigal</groupId>
-    <artifactId>family_madrigal</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>familia_madrigal</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Hello Familia</name>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <!-- Aangeven hoe de bestand-encoding is -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Aangeven welke file de main methode heeft zodat deze uitgevoerd kan worden-->
+        <exec.mainClass>Main</exec.mainClass>
+
+        <!-- Aangeven welke java versie we willen gebruiken-->
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <!-- JUnit5 heeft minimaal deze versie van de SurefIre plugin nodig -->
+                <version>2.22.0</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
