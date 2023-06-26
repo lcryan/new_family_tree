@@ -117,7 +117,6 @@ public class Person {
     public void addParents(Person mother, Person father, Person child) {
         child.setMother(mother);
         child.setFather(father);
-
     }
 
     public void addChildToChildrenList(Person parent, Person child) {
