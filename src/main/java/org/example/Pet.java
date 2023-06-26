@@ -5,7 +5,7 @@ public class Pet {
     private String name;
     private int age;
     private String species;
-    private String owner;
+    private Person owner;
 
     // constructor including super //
     public Pet(String name, int age, String species) {
@@ -36,11 +36,11 @@ public class Pet {
         this.species = species;
     }
 
-    public String getOwner() {
+    public Person getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(Person owner) {
         this.owner = owner;
     }
 }
