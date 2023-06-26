@@ -1,4 +1,4 @@
-import org.example.Pet;
+package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ public class Person {
     private String lastName;
     private String gender;
     private int age;
-    private String mother;
-    private String father;
+    Person mother;
+    Person father;
 
     private List<Person> siblings = new ArrayList<>();
     private List<Person> children = new ArrayList<>();
@@ -59,6 +59,10 @@ public class Person {
         return gender;
     }
 
+    public void setGender(String male) {
+        this.gender = gender;
+    }
+
     public int getAge() {
         return age;
     }
@@ -67,35 +71,36 @@ public class Person {
         this.age = age;
     }
 
-    public String getMother() {
+    public Person getMother() {
         return mother;
     }
 
-    public void setMother() {
+    public void setMother(Person mother) {
         this.mother = mother;
     }
 
-    public String getFather() {
+    public Person getFather() {
         return father;
     }
 
-    public void setFather() {
+    public void setFather(Person father) {
         this.father = father;
     }
 
     public List<Person> getSiblings() {
-        return siblings;
+        return this.siblings;
     }
 
-    public void setSiblings(List<Person> siblingList) {
+    public void setSiblings(List<Person> siblings) {
         this.siblings = siblings;
     }
 
+
     public List<Person> getChildren() {
-        return children;
+        return this.children;
     }
 
-    public void setChildren(List<Person> childrenList) {
+    public void setChildren(List<Person> children) {
         this.children = children;
     }
 
@@ -107,12 +112,11 @@ public class Person {
         this.pets = pets;
     }
 
-    // all methods //
+    // all other methods //
 
     public void addParents(Person mother, Person father, Person child) {
-        child.setMother();
-        child.setFather();
-
+        child.setMother(mother);
+        child.setFather(father);
     }
 
     public void addChildToChildrenList(Person parent, Person child) {
@@ -139,7 +143,7 @@ public class Person {
     public void addSibling(Person person, Person sibling) {
         List<Person> kin = new ArrayList<>(); // here we store the siblings in the list of each person //
         if (person.getSiblings() != null) { // if the condition is true, the code below will be executed...//
-            for (Person persons : person.getSiblings()) { // this iterates over each Person object within the person's existing list of siblings -
+            for (Person persons : person.getSiblings()) { // this iterates over each org.example.Person object within the person's existing list of siblings -
                 //accessed through the getSiblings() method - the loop variable persons represents each individual sibling in the loop iteration. //
                 kin.add(persons); // adding existing siblings to list //
             }
@@ -150,11 +154,11 @@ public class Person {
     }
 
     public List<Person> getGrandChildren(Person person) {
-        List<Person> grandChildren = new ArrayList<>(); // here we store all grandchildren of Person //
+        List<Person> grandChildren = new ArrayList<>(); // here we store all grandchildren of org.example.Person //
         if (person.getChildren() != null) { // if person does have children, then ...//
-            for (Person children : person.getChildren()) { // loop through Person's existing list of children //
+            for (Person children : person.getChildren()) { // loop through org.example.Person's existing list of children //
                 if (children.getChildren() != null) {  // if children have children
-                    for (Person grandChild : children.getChildren()) { //iterates over each Person object in the list of children for the current child - accessed through the getChildren method //
+                    for (Person grandChild : children.getChildren()) { //iterates over each org.example.Person object in the list of children for the current child - accessed through the getChildren method //
                         grandChildren.add(grandChild); // adding all grandChildren to the list of grandChildren;
                     }
                 }
